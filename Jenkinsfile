@@ -1,19 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('---clean---') {
+        stage('git') {
             steps {
-                sh "/opt/maven/bin/mvn clean"
+                sh "git --version"
             }
         }
-        stage('--test--') {
+        stage('maven') {
             steps {
-                sh "/opt/maven/bin/mvn test"
-            }
-        }
-        stage('--package--') {
-            steps {
-                sh "/opt/maven/bin/mvn package"
+                sh "maven --version"
             }
         }
     }
